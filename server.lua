@@ -37,9 +37,13 @@ AddEventHandler('chatMessage', function(player, playerName, message)
 		if IsPlayerAceAllowed(player, "fax.cmds") then
 			TriggerClientEvent("chatMessage", -1, " \n —————————————————————— \n SERVER RESTART IS IN PROGRESS \n Please Rejoin the server  \n ——————————————————————", {239, 0, 0})
 			CancelEvent()
+			SetGameType("SERVER CURRENTLY RESTARTING")
+			  AddEventHandler("playerConnecting", function()
+				DropPlayer(source, 'The Server is restarting, Rejoin in a minute.')
+			  end)
 		else
 			TriggerClientEvent('Restart:NoPerms', player)
 		end
-    end
+	end
 end)
 -- Made by FAXES
