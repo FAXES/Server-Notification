@@ -49,6 +49,21 @@ RegisterCommand("svrnow", function()
 	end
 end)
 
+-- Server Restart Start Timer
+RegisterCommand("svrstart", function()
+	if IsPlayerAceAllowed(player, "fax.cmds") then
+		TriggerClientEvent("chatMessage", -1, " \n —————————————————————— \n SERVER RESTART IN 10 MINUTES \n Please Finish Your Current RP Scenario \n ——————————————————————", {239, 0, 0})
+		Wait(300000)
+		TriggerClientEvent("chatMessage", -1, " \n —————————————————————— \n SERVER RESTART IN 5 MINUTES \n Please Finish Your Current RP Scenario \n ——————————————————————", {239, 0, 0})
+		SetGameType("Server Restarting Soon")
+		Wait(300000)
+		TriggerClientEvent("chatMessage", -1, " \n —————————————————————— \n SERVER RESTART IS IN PROGRESS \n Please Rejoin the server  \n ——————————————————————", {239, 0, 0})
+		SetGameType("SERVER CURRENTLY RESTARTING")
+	else
+		TriggerClientEvent('Restart:NoPerms', player)
+	end
+end)
+
 -- Command for Peace Time on
 RegisterCommand("pton", function()
 	if IsPlayerAceAllowed(player, "fax.cmds") then
